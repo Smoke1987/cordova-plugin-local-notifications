@@ -417,6 +417,7 @@ public final class Options {
      */
     boolean hasLargeIcon() {
         String icon = options.optString("icon", null);
+        Log.d("@@@DEBUG:: ", "hasLargeIcon:: icon= " + icon);
         return icon != null;
     }
 
@@ -451,12 +452,16 @@ public final class Options {
         String icon = options.optString("smallIcon", DEFAULT_ICON);
         int resId = assets.getResId(icon);
 
+        Log.d("@@@DEBUG:: ", "getSmallIcon:: icon= " + icon);
+
         if (resId == 0) {
             resId = assets.getResId(DEFAULT_ICON);
+            Log.d("@@@DEBUG:: ", "getSmallIcon-2:: icon= " + icon);
         }
 
         if (resId == 0) {
             resId = android.R.drawable.ic_popup_reminder;
+            Log.d("@@@DEBUG:: ", "getSmallIcon-3:: icon= " + icon);
         }
 
         return resId;
